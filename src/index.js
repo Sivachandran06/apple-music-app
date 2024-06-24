@@ -1,13 +1,40 @@
 import React from 'react';
 import ReactDOM from 'react-dom/client';
 import './index.css';
-import App from './App';
+//import App from './App';
 import reportWebVitals from './reportWebVitals';
+import { Route, RouterProvider, createBrowserRouter, createRoutesFromElements } from 'react-router-dom';
+import Home from './Pages/home';
+import Login from './Pages/login';
+import Layout from './Pages/layout';
+import Header from './Components/Header';
+import Footer from './Components/Footer';
+import AlbumDetail1 from './Components/AlbumDetail1';
+import AlbumDetail2 from './Components/AlbumDetail2';
+import Allcard from './Components/Allcard';
+import MyFav from './Components/MyFav';
+
+const router = createBrowserRouter(
+  createRoutesFromElements(
+    //<Route path='/' element={<Layout/>}>
+    <Route path='/'>
+      <Route path='/' element={<Layout/>}></Route>
+      <Route path='' element={<Home/>}></Route>
+      <Route path='login' element={<Login/>}></Route>
+      <Route path='AlbumDetail1' element={<AlbumDetail1/>}></Route>
+      <Route path='AlbumDetail2' element={<AlbumDetail2/>}></Route>
+      <Route exact path="Allcard" Component={Allcard}></Route>
+      <Route exact path="MyFav" Component={MyFav}></Route>  
+    </Route>
+  )
+)
 
 const root = ReactDOM.createRoot(document.getElementById('root'));
 root.render(
   <React.StrictMode>
-    <App />
+    <Header/>
+    <RouterProvider router={router}/>
+    <Footer/>
   </React.StrictMode>
 );
 
