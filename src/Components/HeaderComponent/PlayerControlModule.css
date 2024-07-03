@@ -1,0 +1,24 @@
+.music-controls {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background-color: #fd0000;
+    padding: 10px;
+    border-radius: 5px;
+  }
+  
+  .control-btn {
+    background: none;
+    border: none;
+    color: #ccc;
+    font-size: 24px;
+    margin: 0 10px;
+    cursor: pointer;
+    outline: none;
+    transition: color 0.3s;
+  }
+  
+  .control-btn:hover {
+    color: #fff;
+  }
+  

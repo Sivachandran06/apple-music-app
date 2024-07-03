@@ -1,4 +1,5 @@
 import React from "react";
+import PlayerControls from "../Components/HeaderComponent/PlayerControls";
 
 
 function Login (){
@@ -9,6 +10,7 @@ function Login (){
         <h1> Login</h1>
         <h1> Login</h1>
         <h1> Login</h1>
+        
         </>
     )
 }

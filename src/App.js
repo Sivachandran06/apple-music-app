@@ -1,23 +1,29 @@
 import logo from './logo.svg';
 import './App.css';
+import { BrowserRouter as Router, Routes, Route } from 'react-router-dom';
+import Layout from './Pages/layout';
+import Home from './Pages/home';
+import AlbumDetail1 from './Components/AlbumDetail1';
+import AlbumDetail2 from './Components/AlbumDetail2';
+import Allcard from './Components/Allcard';
+import Login from './Pages/login';
+import MyFav from './Components/MyFav';
 
 function App() {
   return (
     <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
+      <Router>
+        <Routes>
+          <Route path="/" element={<Layout />}>
+            <Route index element={<Home />} />
+            <Route path="login" element={<Login />}></Route>
+            <Route path="AlbumDetail1" element={<AlbumDetail1 />}></Route>
+            <Route path="AlbumDetail2" element={<AlbumDetail2 />}></Route>
+            <Route exact path="Allcard" element={<Allcard/>}></Route>
+            <Route exact path="MyFav" Component={MyFav}></Route>
+          </Route>
+        </Routes>
+      </Router>
     </div>
   );
 }
