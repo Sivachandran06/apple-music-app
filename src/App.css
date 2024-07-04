@@ -1,3 +1,4 @@
+/* General styles */
 .App {
   text-align: center;
 }
@@ -32,12 +33,12 @@
   from {
     transform: rotate(0deg);
   }
-
   to {
     transform: rotate(360deg);
   }
 }
 
+/* Layout */
 .layout {
   display: grid;
   grid-template-areas:
@@ -59,7 +60,7 @@
 }
 
 .player-controler, .player-display, .player-volume, .player-menu, .player-Sign-in {
-  flex: 1; /* Ensures all components have equal space */
+  flex: 1 1; /* Ensures all components have equal space */
 }
 
 .player-controler {
@@ -96,7 +97,6 @@
   cursor: pointer;
 }
 
-
 /* Footer styles */
 .footer {
   grid-area: footer;
@@ -104,14 +104,6 @@
   color: white;
   padding: 1rem;
   text-align: center;
-}
-
-.sidenav_button_wrapper {
-  margin-bottom: auto;
-}
-
-.contentWrapper {
-  overflow: auto;
 }
 
 /* Sidebar styles */
@@ -123,13 +115,13 @@
   display: flex;
   justify-content: space-between;
   flex-direction: column;
-
 }
 
 .sidenav_button_wrapper {
   display: flex;
   justify-content: space-between;
   flex-direction: column;
+  margin-bottom: auto;
 }
 
 /* Main content styles */
@@ -139,13 +131,13 @@
   overflow-y: auto;
 }
 
-/* Additional styles for the main content section */
 .mainContent {
   background-color: #fff;
   padding: 20px;
   box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
 }
 
+/* Other styles */
 .applelogotext {
   text-align: center;
   text-decoration: solid;
@@ -153,35 +145,21 @@
   font-weight: 500;
 }
 
-.Open-in-music-btn {
-  border: none;
-  font-size: 13px;
-  align-items: center;
-  display: flex;
-  flex-direction: inherit;
-  height: 35px;
-  bottom: 0;
-}
-
-.open-in-music-svg {
-  width: 20px;
-  height: 600px;
-
-}
-
-.try-beta-btn {
-  border: none;
-  font-size: 13px;
-  align-items: center;
-  display: flex;
-  flex-direction: inherit;
-
-
-}
-
+.Open-in-music-btn,
+.try-beta-btn,
 .beta-btn {
   border: none;
   font-size: 13px;
   align-items: center;
   display: flex;
+  flex-direction: inherit;
+}
+
+.Open-in-music-btn {
+  height: 35px;
+}
+
+.open-in-music-svg {
+  width: 20px;
+  height: 600px;
 }

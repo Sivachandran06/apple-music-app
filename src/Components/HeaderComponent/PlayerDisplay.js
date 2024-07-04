@@ -7,6 +7,7 @@ function PlayerDisplay(){
 
     return(
 
+        // Apple Logo
         <>
         <div className="player-display">
             <div className="left-icon">
