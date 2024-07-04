@@ -1,7 +1,10 @@
 import React, { useEffect, useState } from "react";
 import MusicList from "../Components/MusicList";
+import AppleLogo from "../Components/logo";
+import { Button, Stack } from "@mui/material";
+import KeyboardArrowRightIcon from '@mui/icons-material/KeyboardArrowRight';
 
-function Home() {
+function Home1() {
     const [musicList, setMusicList] = useState([]);
 
     useEffect(() => {
@@ -27,31 +30,30 @@ function Home() {
     }, []);
 
     return (
-
         <>
             <div className="MainContainerSection">
                 <div className="BrowserBanner">
                     <section>
-                    {musicList.map((music)=>{
-                        const {title,_id,audio_url,
-                            description}=music;
-                        {
-                            /* TODO: music card */
-                        }
-                        return(
+                        {musicList.map((music) => {
+                            const { title, _id, audio_url,
+                                description } = music;
+                            {
+                                /* TODO: music card */
+                            }
+                            return (
 
-                            <div 
-                            onClick={()=>setMusicList({
-                                title,
-                                _id,
-                                audio_url
-                                
-                            })}>
-                                {title} - {_id}- {description} -{audio_url}
-                                <MusicList songs = {music.songs} title= {"SMART SIVA"}/>
-                            </div>
-                        );
-                    })}
+                                <div
+                                    onClick={() => setMusicList({
+                                        title,
+                                        _id,
+                                        audio_url
+
+                                    })}>
+                                    {title} - {_id}- {description} -{audio_url}
+                                    <MusicList songs={music.songs} title={"SMART SIVA"} />
+                                </div>
+                            );
+                        })}
                     </section>
 
 
@@ -59,6 +61,23 @@ function Home() {
             </div>
         </>
     );
+}
+function Home() {
+    return (
+        <div>
+            <AppleLogo />
+            <p>
+                Discover New Music Everyday.
+            </p>
+            <p>Get playlists and albums inspired by the artists and genres you’re listening to. 1 month free, then $10.99/month.</p>
+            <Stack direction="row" spacing={2} alignContent={"center"} justifyContent={"center"}>
+                <Button variant="outlined" style={{ color: "White", backgroundColor: "red" }}>
+                    Try it Free
+                </Button>
+            </Stack>
+            <Button variant="text">Learn More <KeyboardArrowRightIcon /></Button>
+        </div>
+    )
 }
 
 export default Home;

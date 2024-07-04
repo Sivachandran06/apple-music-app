@@ -14,7 +14,7 @@ function Layout(props) {
       <div className="layout">
         <LeftPanel />
         <Header />
-        
+
         <div className="contentWrapper">
           <main>
             <Outlet />
@@ -27,26 +27,3 @@ function Layout(props) {
 }
 
 export default Layout;
-
-{
-  /* <>
-<div class="layout">
-<Header/>
- {/* <Home/> */
-}
-<LeftPanel />;
-{
-  /* <Controls/> */
-}
-{
-  /* <Outlet/> */
-}
-{
-  /* <MainContent/>
- <Footer/>
-
-</div>
-
-</>
- */
-}

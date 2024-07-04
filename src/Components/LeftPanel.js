@@ -10,7 +10,7 @@ import AppleIcon from '@mui/icons-material/Apple';
 import { Button } from "@mui/material";
 import CallMadeRoundedIcon from '@mui/icons-material/CallMadeRounded';
 import Beta from "./Beta";
-
+import AppleLogo from "./logo";
 
 function LeftPanel() {
 
@@ -32,10 +32,7 @@ function LeftPanel() {
 
             <div className="sidebar">
                 <div className="sidenav_button_wrapper">
-                    <div className="applelogo">
-                        <AppleIcon />
-                        <span className="applelogotext">Music</span>
-                    </div>
+                    <AppleLogo />
                     <div>
                         <Input startDecorator={<SearchIcon />}
                             placeholder="Search"
