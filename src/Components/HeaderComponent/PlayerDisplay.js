@@ -15,7 +15,7 @@ function PlayerDisplay(){
             </div>
             <div className="player-container">
             <div className="center-content">
-            <AppleIcon style={{ fontSize:"24px" }}/>
+            <AppleIcon style={{color:"rgb(98 ,98, 98)" , fontSize:"24px" }}/>
             </div>
             </div>
             

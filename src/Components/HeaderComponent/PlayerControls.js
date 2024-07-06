@@ -20,7 +20,7 @@ const PlayerControls = () => {
   };
 
   const getPlayPauseIcon = () => {
-    return isPlaying ? <PauseRoundedIcon style={{color:'black', fontSize:"30px"}}/> : <PlayArrowRoundedIcon style={{color:'black', fontSize:"30px"}} />;
+    return isPlaying ? <PauseRoundedIcon style={{ color:"red", fontSize:"42px"}}/> : <PlayArrowRoundedIcon style={{color:'red',  fontSize:"42px"}} />;
   };
 
   const getRepeatIcon = () => {
@@ -36,19 +36,19 @@ const PlayerControls = () => {
 
   return (
     <div className="music-controls">
-      <button className="control-btn">
+      <button className="control-btn filter-gray">
         <img src='Shuffle.svg' alt="Shuffle Icon" /> {/* Shuffle */}
       </button>
-      <button className="control-btn">
+      <button className="control-btn filter-gray">
         <img src='Previous.svg' alt="Previous Icon" style={{ transform: 'rotate(180deg)' }} /> {/* Previous */}
       </button>
-      <button className="control-btn" onClick={handlePlayPause}>
+      <button className="control-btn filter-gray" onClick={handlePlayPause}>
         {getPlayPauseIcon()} {/* Play/Pause */}
       </button>
-      <button className="control-btn">
-        <img src='Next.svg' alt="Next Icon" /> {/* Next */}
+      <button className="control-btn filter-gray">
+        <img src='Next.svg' alt="Next Icon"  /> {/* Next */}
       </button>
-      <button className="control-btn" onClick={toggleRepeatMode}>
+      <button className="control-btn filter-gray" onClick={toggleRepeatMode}>
         <img src={getRepeatIcon()} alt="Repeat Icon" /> {/* Repeat */}
       </button>
     </div>

@@ -2,7 +2,7 @@
     display: flex;
     justify-content: center;
     align-items: center;
-    background-color: #fd0000;
+    background-color: transparent;
     padding: 10px;
     border-radius: 5px;
   }
@@ -10,7 +10,7 @@
   .control-btn {
     background: none;
     border: none;
-    color: #ccc;
+    color: rgba(255, 255, 255, 0.64);
     font-size: 24px;
     margin: 0 10px;
     cursor: pointer;
@@ -20,5 +20,8 @@
   
   .control-btn:hover {
     color: #fff;
+  }
+  .filter-gray{
+    filter: invert(29%) sepia(1%) saturate(0%) hue-rotate(0deg) brightness(100%) contrast(76%);
   }
   
