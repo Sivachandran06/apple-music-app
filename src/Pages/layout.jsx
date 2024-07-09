@@ -12,16 +12,12 @@ function Layout(props) {
   return (
     <>
       <div className="layout">
-        <LeftPanel />
-        <Header />
-        
-        <div className="contentWrapper">
-          <main>
-            <Outlet />
-          </main>
-          <Footer />
+      <div className="sidebar"><LeftPanel/></div>
+      <div className="header"><Header/></div>
+      <div className="main"><Outlet/></div>
+      <div className="footer"><Footer/></div>
         </div>
-      </div>
+      
     </>
   );
 }
