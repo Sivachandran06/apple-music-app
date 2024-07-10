@@ -1,16 +1,15 @@
 import React from "react";
-import Box from '@mui/joy/Box';
 import { styled } from '@mui/joy/styles';
 import Sheet from '@mui/joy/Sheet';
 import Stack from '@mui/joy/Stack';
-import SearchBar from "./SearchBar";
 import Input from '@mui/joy/Input';
 import SearchIcon from '@mui/icons-material/Search';
-import AppleIcon from '@mui/icons-material/Apple';
 import { Button } from "@mui/material";
 import CallMadeRoundedIcon from '@mui/icons-material/CallMadeRounded';
 import Beta from "./Beta";
 import AppleLogo from "./logo";
+import { BrowseGallery, Home, MusicNote } from "@mui/icons-material";
+import { Link } from "react-router-dom";
 
 function LeftPanel() {
 
@@ -28,34 +27,15 @@ function LeftPanel() {
 
     return (
         <>
-            {/* */}
-
             <div className="sidebar">
                 <div className="sidenav_button_wrapper">
                     <AppleLogo />
-                    <div>
-                        <Input startDecorator={<SearchIcon />}
-                            placeholder="Search"
-                            sx={{
-                                '&::before': {
-                                    display: 'none',
-                                },
-                                '&:focus-within': {
-                                    outline: '2px solid var(--Input-focusedHighlight)',
-                                    outlineOffset: '2px',
-                                },
-                            }}
-                        />
-                    </div>
-                    <div>
-                        <Box sx={{ width: '100%' }}>
-                            <Stack spacing={2}>
-                                <Item>Home</Item>
-                                <Item>Browser</Item>
-                                <Item>Radio</Item>
-                            </Stack>
-                        </Box>
-                    </div>
+                    <Stack spacing={1}>
+                        <Input size="small" startDecorator={<SearchIcon />} placeholder="Search" />
+                        <Button className="nav_btn" size="small" LinkComponent={Link} to="/" startIcon={<Home className="nav_icon" />}>Home</Button>
+                        <Button className="nav_btn" size="small" LinkComponent={Link} to="/browse" startIcon={<BrowseGallery className="nav_icon" />}>Browse</Button>
+                        <Button className="nav_btn" size="small" LinkComponent={Link} to="/radio" startIcon={<MusicNote className="nav_icon" />}>Radio</Button>
+                    </Stack>
                 </div>
                 <div>
                     <button className="Open-in-music-btn ">

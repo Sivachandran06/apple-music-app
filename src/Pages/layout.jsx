@@ -8,13 +8,11 @@ import Home from "./home";
 import MainContent from "../Components/MainContent";
 
 function Layout(props) {
-  console.log(props, "Propsssssssss");
   return (
     <>
       <div className="layout">
         <LeftPanel />
         <Header />
-
         <div className="contentWrapper">
           <main>
             <Outlet />

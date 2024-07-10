@@ -14,6 +14,24 @@
   }
 }
 
+.nav_icon {
+  color: red;
+}
+
+.nav_btn {
+  justify-content: start !important;
+  color: black !important;
+}
+
+.line2 {
+  font-size: 17px;
+  line-height: 1.4118447059;
+  font-weight: 400;
+  letter-spacing: 0;
+  font-family: -apple-system, BlinkMacSystemFont, Apple Color Emoji, SF Pro,
+    SF Pro Icons, Helvetica Neue, Helvetica, Arial, sans-serif;
+}
+
 .App-header {
   background-color: #282c34;
   min-height: 100vh;
@@ -56,10 +74,14 @@
   justify-content: space-between;
   align-items: center;
   background-color: #333; /* Adjust the background color as needed */
-  padding: 10px 20px;
+  padding: 10px;
 }
 
-.player-controler, .player-display, .player-volume, .player-menu, .player-Sign-in {
+.player-controler,
+.player-display,
+.player-volume,
+.player-menu,
+.player-Sign-in {
   flex: 1 1; /* Ensures all components have equal space */
 }
 
