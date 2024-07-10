@@ -37,12 +37,12 @@ function LeftPanel() {
             <div className="sidebar">
 
                 <div className="sidenav_button_wrapper">
-                    <div className="applelogo" style={{textAlign:'left',padding:'15px'}}>
+                    <div className="applelogo" style={{textAlign:'left',padding:'10px'}}>
                         <AppleIcon style={{ color: "#fff" }} />
                         <span className="applelogotext">Music</span>
                     </div>
                     <div >
-                        <Input style={{ color: "rgb(176 176 177)", backgroundcolor: "red", border: "1px solid white" }} startDecorator={<SearchIcon />}
+                        <Input style={{ color: "rgb(176 176 177)", border: "1px solid white"   }} startDecorator={<SearchIcon />}
                             placeholder="Search"
                             sx={{
                                 '&::before': {
@@ -52,13 +52,14 @@ function LeftPanel() {
                                     outline: '2px solid var(--Input-focusedHighlight)',
                                     outlineOffset: '2px',
                                 },
+                                backgroundColor:'transparent'
                             }}
                         />
                     </div>
                     <div className="options-btn">
                         <Box sx={{ width: '100%' }}>
-                            <Stack direction="column" spacing={2}>
-                                <Button variant="none" startIcon={<HomeOutlinedIcon sx={{ color: red[500] ,justifyContent: 'flex-start',alignItems:'center'}}  />}>
+                            <Stack direction="column" spacing={2} style={{justifyContent: 'flex-start',alignItems:'center'}}>
+                                <Button variant="none" startIcon={<HomeOutlinedIcon sx={{ color: red[500] }}  />}>
                                     Home
                                 </Button>
                                 <Button variant="none" startIcon={<GridViewOutlinedIcon sx={{ color: red[500] }} />}>
