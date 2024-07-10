@@ -1,4 +1,3 @@
-import { Margin } from '@mui/icons-material';
 import AppleIcon from '@mui/icons-material/Apple';
 
 const AppleLogo = (props) => {

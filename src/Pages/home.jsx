@@ -1,5 +1,4 @@
-import React, { useEffect, useState } from "react";
-import MusicList from "../Components/MusicList";
+import React from "react";
 import AppleLogo from "../Components/logo";
 import { Button, Stack } from "@mui/material";
 import KeyboardArrowRightIcon from '@mui/icons-material/KeyboardArrowRight';
@@ -18,7 +17,7 @@ function Home(props) {
                 </Button>
                 <Button size="small" variant="text">Learn More <KeyboardArrowRightIcon /></Button>
             </Stack>
-            <img src="apple_lap.webp" />
+            <img alt="apple_lap.webp" src="apple_lap.webp" />
         </div>
     )
 }
