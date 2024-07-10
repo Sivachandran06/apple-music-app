@@ -13,7 +13,7 @@ function LeftPanel() {
 
     return (
         <>
-            <div className="sidebar">
+            <div>
                 <div className="sidenav_button_wrapper">
                     <AppleLogo />
                     <Stack spacing={1}>

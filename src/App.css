@@ -59,14 +59,15 @@
 
 /* Layout */
 .layout {
-  display: grid;
+  /* display: grid;
   grid-template-areas:
     "sidebar header"
     "sidebar content"
-    "sidebar footer";
-  grid-template-rows: auto 1fr auto;
-  grid-template-columns: 200px 1fr;
+    "sidebar footer"; */
+  /* grid-template-rows: auto 1fr auto;
+  grid-template-columns: 200px 1fr; */
   height: 100vh;
+  width: 100vw;
 }
 
 /* Header styles */
@@ -161,12 +162,7 @@
   background-color: hsl(240deg 1.33% 14.71%);
   display: flex;
   align-items: center;
-  justify-content: center;
-  width: 100%;
-  flex-direction: column;
-  position: absolute;
-  top: 0px;
-  left: 0px;
+  padding: 20px;
   width: 275px;
   height: 100%;
   position: sticky;
@@ -195,15 +191,14 @@
   display: flex;
   align-items: center;
   justify-content: center;
-  height: 100%;
+  height: 30%;
   width: 100%;
 }
 
 .sidenav_button_wrapper {
-  display: flex;
-  justify-content: space-between;
-  flex-direction: column;
   margin-bottom: auto;
+  position: fixed;
+  top: 0;
 }
 
 /* Main content styles */
@@ -216,7 +211,6 @@
 .main {
   grid-area: main;
   background-color: hsl(0deg 0% 12.16%);
-  display: flex;
   align-items: center;
   justify-content: center;
   height: 100%;
@@ -254,4 +248,22 @@
   width: 20px;
   height: 600px;
   color: rgb(176 176 177);
+}
+
+.browseComponent {
+  display: flex;
+  flex-direction: row;
+  overflow: autoI;
+}
+.carousel_card_comp {
+  display: flex;
+  flex-direction: column;
+  min-width: 320px;
+  background-color: #fff;
+  margin: 5px;
+}
+
+.t1 {
+  font-size: small;
+  text-transform: uppercase;
 }
