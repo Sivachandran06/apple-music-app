@@ -33,8 +33,8 @@ export default function Menu() {
   );
 
   return (
-    <div>
-      <Button onClick={toggleDrawer(true)}><ListOutlinedIcon/></Button>
+    <div style={{ position: "relative", left: "125px" }}>
+      <Button onClick={toggleDrawer(true)} style={{ alignItems: "right" }}><ListOutlinedIcon style={{ color: "rgb(132 132 132)" }} /></Button>
       <Drawer anchor="right" open={open} onClose={toggleDrawer(false)}>
         {DrawerList}
       </Drawer>

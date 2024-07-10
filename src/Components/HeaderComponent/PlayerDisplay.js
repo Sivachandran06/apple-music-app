@@ -11,11 +11,11 @@ function PlayerDisplay(){
         <>
         <div className="player-display">
             <div className="left-icon">
-            <img src='MusicSyb.svg' style={{ height:"20px", width:"20px"}}></img>
+            <img alt="MusicSyb.svg" src='MusicSyb.svg' style={{ height:"20px", width:"20px"}}></img>
             </div>
             <div className="player-container">
             <div className="center-content">
-            <AppleIcon style={{ fontSize:"24px" }}/>
+            <AppleIcon style={{color:"rgb(98 ,98, 98)" , fontSize:"24px" }}/>
             </div>
             </div>
             

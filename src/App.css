@@ -1,6 +1,7 @@
 /* General styles */
 .App {
   text-align: center;
+  overflow: hidden;
 }
 
 .App-logo {
@@ -84,6 +85,13 @@
 .player-Sign-in {
   flex: 1 1; /* Ensures all components have equal space */
 }
+.player-controler,
+.player-display,
+.player-volume,
+.player-menu,
+.player-Sign-in {
+  flex: 2 2; /* Ensures all components have equal space */
+}
 
 .player-controler {
   display: flex;
@@ -119,24 +127,76 @@
   cursor: pointer;
 }
 
+/* Layout */
+.layout {
+  display: grid;
+  grid-template-areas:
+    "sidebar header"
+    "sidebar main"
+    "sidebar footer";
+  grid-template-columns: 0.5fr 3fr;
+  grid-template-rows: auto 1fr auto;
+  height: 100vh;
+  align-content: stretch;
+  justify-content: space-evenly;
+  align-items: stretch;
+  justify-items: center;
+}
+
 /* Footer styles */
 .footer {
   grid-area: footer;
-  background-color: #333;
-  color: white;
-  padding: 1rem;
-  text-align: center;
+  background-color: hsl(0deg 0% 19.61%);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  height: 100%;
+  width: 100%;
+  position: relative;
 }
 
 /* Sidebar styles */
 .sidebar {
   grid-area: sidebar;
-  background-color: #f0f0f0;
-  padding: 20px;
-  box-shadow: 2px 0 5px rgba(0, 0, 0, 0.1);
+  background-color: hsl(240deg 1.33% 14.71%);
   display: flex;
-  justify-content: space-between;
+  align-items: center;
+  justify-content: center;
+  width: 100%;
   flex-direction: column;
+  position: absolute;
+  top: 0px;
+  left: 0px;
+  width: 275px;
+  height: 100%;
+  position: sticky;
+}
+
+.options-btn {
+  display: flex;
+  justify-content: flex-start;
+  flex-direction: column;
+  align-items: flex-start;
+  padding: 20px;
+  color: rgb(253 253 253);
+}
+
+.btom-container {
+  position: absolute;
+  bottom: 40px;
+  left: 52px;
+  gap: 10px;
+}
+
+/* Header styles */
+.header {
+  grid-area: header;
+  background-color: hsl(0deg 0% 17.25%);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  height: 100%;
+  width: 100%;
 }
 
 .sidenav_button_wrapper {
@@ -153,10 +213,15 @@
   overflow-y: auto;
 }
 
-.mainContent {
-  background-color: #fff;
-  padding: 20px;
-  box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+.main {
+  grid-area: main;
+  background-color: hsl(0deg 0% 12.16%);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  height: 100%;
+  width: 100%;
+  overflow: overlay;
 }
 
 /* Other styles */
@@ -165,6 +230,7 @@
   text-decoration: solid;
   font-size: 23px;
   font-weight: 500;
+  color: #fff;
 }
 
 .Open-in-music-btn,
@@ -175,13 +241,17 @@
   align-items: center;
   display: flex;
   flex-direction: inherit;
+  background-color: transparent;
+  color: rgb(176 176 177);
 }
 
 .Open-in-music-btn {
   height: 35px;
+  bottom: 0px;
 }
 
 .open-in-music-svg {
   width: 20px;
   height: 600px;
+  color: rgb(176 176 177);
 }
