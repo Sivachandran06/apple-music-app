@@ -7,10 +7,14 @@ import SearchBar from "./SearchBar";
 import Input from '@mui/joy/Input';
 import SearchIcon from '@mui/icons-material/Search';
 import AppleIcon from '@mui/icons-material/Apple';
-import { Button } from "@mui/material";
+import { Button, colors } from "@mui/material";
 import CallMadeRoundedIcon from '@mui/icons-material/CallMadeRounded';
 import Beta from "./Beta";
 import AppleLogo from "./logo";
+import GridViewOutlinedIcon from '@mui/icons-material/GridViewOutlined';
+import SensorsOutlinedIcon from '@mui/icons-material/SensorsOutlined';
+import HomeOutlinedIcon from '@mui/icons-material/HomeOutlined';
+import { red } from "@mui/material/colors";
 
 function LeftPanel() {
 
@@ -31,10 +35,11 @@ function LeftPanel() {
             {/* */}
 
             <div className="sidebar">
+
                 <div className="sidenav_button_wrapper">
                     <AppleLogo />
-                    <div>
-                        <Input startDecorator={<SearchIcon />}
+                    <div >
+                        <Input style={{ color: "rgb(176 176 177)", backgroundcolor: "red", border: "1px solid white" }} startDecorator={<SearchIcon />}
                             placeholder="Search"
                             sx={{
                                 '&::before': {
@@ -47,17 +52,23 @@ function LeftPanel() {
                             }}
                         />
                     </div>
-                    <div>
+                    <div className="options-btn">
                         <Box sx={{ width: '100%' }}>
-                            <Stack spacing={2}>
-                                <Item>Home</Item>
-                                <Item>Browser</Item>
-                                <Item>Radio</Item>
+                            <Stack direction="column" spacing={2}>
+                                <Button variant="none" startIcon={<HomeOutlinedIcon sx={{ color: red[500] ,justifyContent: 'flex-start',alignItems:'center'}}  />}>
+                                    Home
+                                </Button>
+                                <Button variant="none" startIcon={<GridViewOutlinedIcon sx={{ color: red[500] }} />}>
+                                    Browser
+                                </Button>
+                                <Button variant="none" startIcon={<SensorsOutlinedIcon sx={{ color: red[500] }} />}>
+                                    Radio
+                                </Button>
                             </Stack>
                         </Box>
                     </div>
                 </div>
-                <div>
+                <div className="btom-container">
                     <button className="Open-in-music-btn ">
                         <span><img src='Music.svg' className="open-in-music-svg"></img></span>
                         <span> Open in Music</span><CallMadeRoundedIcon />
@@ -67,6 +78,7 @@ function LeftPanel() {
                     </div>
 
                 </div>
+
             </div>
         </>
     )
