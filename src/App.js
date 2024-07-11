@@ -9,6 +9,7 @@ import Login from './Pages/login';
 import MyFav from './Components/MyFav';
 import Browse from './Pages/browse';
 import Radio from './Pages/radio';
+import Browse1 from './Pages/browse1';
 
 function App() {
   return (
@@ -24,6 +25,7 @@ function App() {
             <Route path="AlbumDetail2" element={<AlbumDetail2 />}></Route>
             <Route exact path="Allcard" element={<Allcard />}></Route>
             <Route exact path="MyFav" Component={MyFav}></Route>
+            <Route exact path="browse1" Component={Browse1}></Route>
           </Route>
         </Routes>
       </Router>
