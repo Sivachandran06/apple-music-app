@@ -1,29 +1,36 @@
 import React from "react";
 import './FooterModule.css';
 
-function Footer() {
-    return (
-      <div className='footer'>
-        <div className="language-bar">
-        <p>
-          <span>United States</span>
-          <span>|  Español (México)    |</span>
-          <span>|  العربية</span>
-          <span>|  Русский</span>
-          <span>|  简体中文</span>
-          <span>|  Français (France)</span>
-          <span>|  한국어</span>
-          <span>|  Português (Brazil)</span>
-          <span>|  Tiếng Việt</span>
-          <span>|  繁體中文 (台灣)  </span>
-        </p>
-        </div>
-        <div className="footer-content">
 
-        </div>
-        
+function Footer() {
+  return (
+      <div className="footer">
+          <div className="language-bar">
+              <ul>
+                  <li>United States</li>
+                  <li>Español (México)</li>
+                  <li>العربية</li>
+                  <li>Русский</li>
+                  <li>简体中文</li>
+                  <li>Français (France)</li>
+                  <li>한국어</li>
+                  <li>Português (Brazil)</li>
+                  <li>Tiếng Việt</li>
+                  <li>繁體中文 (台灣)</li>
+              </ul>
+          </div>
+          <div className="footer-content">
+              <p>Copyright © 2024 Apple Inc. All rights reserved.</p>
+              <ul>
+                  <li>Internet Service Terms</li>
+                  <li>Apple Music & Privacy</li>
+                  <li>Cookie Warning</li>
+                  <li>Support</li>
+                  <li>Feedback</li>
+              </ul>
+          </div>
       </div>
-    )
+  );
 }
 
 export default Footer;
