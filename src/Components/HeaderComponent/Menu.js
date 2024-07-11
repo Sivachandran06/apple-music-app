@@ -8,8 +8,6 @@ import ListItem from '@mui/material/ListItem';
 import ListItemButton from '@mui/material/ListItemButton';
 import ListItemText from '@mui/material/ListItemText';
 import ListOutlinedIcon from '@mui/icons-material/ListOutlined';
-import { ForkRight } from '@mui/icons-material';
-import { red } from '@mui/material/colors';
 
 export default function Menu() {
   const [open, setOpen] = React.useState(false);
@@ -35,8 +33,8 @@ export default function Menu() {
   );
 
   return (
-    <div style={{ position: "relative",  left:"125px"}}>
-      <Button onClick={toggleDrawer(true)} style={{alignItems:"right"}}><ListOutlinedIcon style={{color:"rgb(132 132 132)"}}/></Button>
+    <div style={{ position: "relative", left: "125px" }}>
+      <Button onClick={toggleDrawer(true)} style={{ alignItems: "right" }}><ListOutlinedIcon style={{ color: "rgb(132 132 132)" }} /></Button>
       <Drawer anchor="right" open={open} onClose={toggleDrawer(false)}>
         {DrawerList}
       </Drawer>
