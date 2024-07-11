@@ -1,13 +1,19 @@
 import React from "react";
+import Box from '@mui/joy/Box';
+import { styled } from '@mui/joy/styles';
+import Sheet from '@mui/joy/Sheet';
 import Stack from '@mui/joy/Stack';
+import SearchBar from "./SearchBar";
 import Input from '@mui/joy/Input';
 import SearchIcon from '@mui/icons-material/Search';
-import { Button } from "@mui/material";
+import AppleIcon from '@mui/icons-material/Apple';
+import { Button, colors } from "@mui/material";
 import CallMadeRoundedIcon from '@mui/icons-material/CallMadeRounded';
 import Beta from "./Beta";
-import AppleLogo from "./logo";
-import { BrowseGallery, Home, MusicNote } from "@mui/icons-material";
-import { Link } from "react-router-dom";
+import GridViewOutlinedIcon from '@mui/icons-material/GridViewOutlined';
+import SensorsOutlinedIcon from '@mui/icons-material/SensorsOutlined';
+import HomeOutlinedIcon from '@mui/icons-material/HomeOutlined';
+import { red } from "@mui/material/colors";
 
 function LeftPanel() {
 
