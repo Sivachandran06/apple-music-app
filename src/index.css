@@ -5,6 +5,8 @@ body {
     sans-serif;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
+  scrollbar-width: thin;
+  scrollbar-color: #333;
 }
 
 code {
@@ -13,7 +15,7 @@ code {
 }
 
 .Header {
-  top:0;
+  top: 0;
 }
 
 .Footer {
