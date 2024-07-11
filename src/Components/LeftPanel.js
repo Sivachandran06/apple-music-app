@@ -15,13 +15,40 @@ function LeftPanel() {
         <>
             <div>
                 <div className="sidenav_button_wrapper">
-                    <AppleLogo />
-                    <Stack spacing={1}>
-                        <Input size="small" startDecorator={<SearchIcon />} placeholder="Search" />
-                        <Button className="nav_btn" size="small" LinkComponent={Link} to="/" startIcon={<Home className="nav_icon" />}>Home</Button>
-                        <Button className="nav_btn" size="small" LinkComponent={Link} to="/browse" startIcon={<BrowseGallery className="nav_icon" />}>Browse</Button>
-                        <Button className="nav_btn" size="small" LinkComponent={Link} to="/radio" startIcon={<MusicNote className="nav_icon" />}>Radio</Button>
-                    </Stack>
+                    <div className="applelogo" style={{ textAlign: 'left', padding: '10px' }}>
+                        <AppleIcon style={{ color: "#fff" }} />
+                        <span className="applelogotext">Music</span>
+                    </div>
+                    <div >
+                        <Input style={{ color: "rgb(176 176 177)", border: "1px solid white" }} startDecorator={<SearchIcon />}
+                            placeholder="Search"
+                            sx={{
+                                '&::before': {
+                                    display: 'none',
+                                },
+                                '&:focus-within': {
+                                    outline: '2px solid var(--Input-focusedHighlight)',
+                                    outlineOffset: '2px',
+                                },
+                                backgroundColor: 'transparent'
+                            }}
+                        />
+                    </div>
+                    <div className="options-btn">
+                        <Box sx={{ width: '100%' }}>
+                            <Stack direction="column" spacing={2} style={{ justifyContent: 'flex-start', alignItems: 'center' }}>
+                                <Button variant="none" startIcon={<HomeOutlinedIcon sx={{ color: red[500] }} />}>
+                                    Home
+                                </Button>
+                                <Button variant="none" startIcon={<GridViewOutlinedIcon sx={{ color: red[500] }} />}>
+                                    Browser
+                                </Button>
+                                <Button variant="none" startIcon={<SensorsOutlinedIcon sx={{ color: red[500] }} />}>
+                                    Radio
+                                </Button>
+                            </Stack>
+                        </Box>
+                    </div>
                 </div>
                 <div className="btom-container">
                     <button className="Open-in-music-btn ">
