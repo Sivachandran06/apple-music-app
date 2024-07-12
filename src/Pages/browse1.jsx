@@ -4,30 +4,33 @@ import MusicList from "../Components/MusicList";
 function Browse1() {
     const [musicList, setMusicList] = useState([]);
 
-    useEffect(() => {
-        const url = "https://academics.newtonschool.co/api/v1/music/album";
-
-        const myHeaders = new Headers();
-        myHeaders.append("projectId", "22uq494gh842");
-
-        const requestOptions = {
-            method: "GET",
-            headers: myHeaders,
-            redirect: "follow"
-        };
-
-        async function fetchMusicList() {
+    async function fetchMusicList() {
+        let data = localStorage.getItem('musiclist')
+        if (data) {
+            data = JSON.parse(data)
+        } else {
+            const url = "https://academics.newtonschool.co/api/v1/music/album";
+            const myHeaders = new Headers();
+            myHeaders.append("projectId", "22uq494gh842");
+            const requestOptions = {
+                method: "GET",
+                headers: myHeaders,
+                redirect: "follow"
+            };
             const response = await fetch(url, requestOptions);
             const result = await response.json();
-            setMusicList(result.data); // Save data to state
-            console.log(result.data, "data");
+            data = result.data
+            localStorage.setItem("musiclist", JSON.stringify(result.data))
         }
+        setMusicList(data); // Save data to state
+        console.log(data, "data");
+    }
 
+    useEffect(() => {
         fetchMusicList();
     }, []);
 
     return (
-
         <>
             <div className="MainContainerSection">
                 <div className="BrowserBanner">
