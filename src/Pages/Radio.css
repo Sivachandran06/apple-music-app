@@ -1,0 +1,72 @@
+.radio-heading{
+    display: flex;
+    font-size: 24px;
+    letter-spacing: 0;
+    line-height: 1.17649;
+    border-bottom:0.5px solid snow;
+    padding-bottom:  10px;
+    gap :10px;
+}
+/* Radio.css */
+.radio-container {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    padding: 20px;
+  }
+  
+  
+  .section-container {
+    display: flex;
+    flex-direction: column;
+    width: 100%;
+  }
+  
+  .List-container {
+    display: flex;
+    flex-direction: column;
+    gap: 20px; /* Adds space between list items */
+    width: 100%;
+  }
+  
+  .first-radio {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+  }
+  
+  .first-radio li {
+    display: flex;
+    flex-direction: column;
+    border: 1px solid #ddd;
+    padding: 10px;
+    border-radius: 5px;
+    background-color: #f9f9f9;
+  }
+  
+  .top-list-container {
+    display: flex;
+    align-items: center;
+    margin-bottom: 10px;
+  }
+  
+  .top-list-container h3 {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+  }
+  
+  .img-container {
+    height: 100px; /* Adjust height as needed */
+    background-color: #eee;
+    margin: 10px 0;
+  }
+  
+  .bottom-list-container {
+    margin-top: 10px;
+  }
+  
+  .bottom-list-container .titel {
+    font-size: 1.2em;
+  }
+  

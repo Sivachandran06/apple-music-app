@@ -74,7 +74,9 @@
   align-items: center;
   grid-column: 2 / span 1;
   grid-row: 1 / span 1;
-  padding: 1rem;
+  background-color: hsl(0deg 0% 17.25%);
+  width: 100%;
+  height: 109%;
 }
 
 .player-controler,
