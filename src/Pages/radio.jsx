@@ -8,7 +8,7 @@ function Radio(props) {
       <div className="radio-heading">
         <h1>Radio</h1>
       </div>
-      
+
       <div className="section-container">
         <div className="List-container">
           <ul className="first-radio">
@@ -23,21 +23,21 @@ function Radio(props) {
               <div className="img-container"></div>
 
               <div className="bottom-list-container">
-                <h4 className="titel">hellow</h4>
+                <h4 className="titel">SongTitel</h4>
               </div>
             </li>
             <li>
               <div className="top-list-container">
                 <h3>
                   <AppleIcon />
-                  Music List
+                  Music Hits
                 </h3>
                 <p>Songs you know and love.</p>
               </div>
               <div className="img-container"></div>
 
               <div className="bottom-list-container">
-                <h4 className="titel">hellow</h4>
+                <h4 className="titel">SongTitel</h4>
               </div>
             </li>
             <li>
@@ -51,7 +51,7 @@ function Radio(props) {
               <div className="img-container"></div>
 
               <div className="bottom-list-container">
-                <h4 className="titel">hellow</h4>
+                <h4 className="titel">SongTitel</h4>
               </div>
             </li>
           </ul>
