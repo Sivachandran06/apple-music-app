@@ -126,14 +126,14 @@ body{
   justify-content: flex-end;
 }
 
-.player-Sign-in button {
+/* .player-Sign-in button {
   background-color: red;
   color: white;
   border: none;
   padding: 10px 20px;
   border-radius: 5px;
   cursor: pointer;
-}
+} */
 
 /* Footer styles */
 .footer {
