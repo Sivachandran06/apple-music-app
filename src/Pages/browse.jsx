@@ -1,78 +1,58 @@
-import { Paper } from "@mui/material";
+import { Typography } from "@mui/material";
+import React, { useEffect, useState } from "react";
+import Stack from '@mui/material/Stack';
+import "../Components/component.css";
+
 
 function Browse(props) {
+    const [musicList, setMusicList] = useState([]);
+
+    async function fetchMusicList() {
+        let data = localStorage.getItem('musiclist')
+        if (data) {
+            data = JSON.parse(data)
+        } else {
+            const url = "https://academics.newtonschool.co/api/v1/music/album";
+            const myHeaders = new Headers();
+            myHeaders.append("projectId", "22uq494gh842");
+            const requestOptions = {
+                method: "GET",
+                headers: myHeaders,
+                redirect: "follow"
+            };
+            const response = await fetch(url, requestOptions);
+            const result = await response.json();
+            data = result.data
+            localStorage.setItem("musiclist", JSON.stringify(result.data))
+        }
+        setMusicList(data); // Save data to state
+        console.log(data, "data");
+    }
+
+    useEffect(() => {
+        fetchMusicList();
+    }, []);
     return (
         <>
             <h1>Browse</h1>
             <hr></hr>
-            <div className="browseComponent">
-                {[1, 2, 3, 4, 5, 6, 7, 8].map(element => {
+            <Stack className="scroll_carousel" sx={{
+                overflowY: 'auto',
+                maxHeight: 400,
+                '& > *': {
+                    width: '100%',
+                },
+            }} direction="row" spacing={2}>
+                {musicList.map((element, index) => {
                     return (
-                        <div className="carousel_card_comp">
-                            <p className="t1">UPDAt eD PLAYLIST</p>
-                            <p className="t2">New Music Daily</p>
-                            <p className="t3">Apple Music</p>
-                            <Paper elevation={6} />
+                        <div className="albumBanner">
+                            <Typography variant="h6">Card</Typography>
+                            <Typography variant="body1">Lorem ipsum dolor sit amet</Typography>
+                            <img className="album_image" alt="album_cover" src={element.image} />
                         </div>
                     )
                 })}
-            </div>
-            <h1>Browse</h1>
-            <hr></hr>
-            <div className="browseComponent">
-                {[1, 2, 3, 4, 5, 6, 7, 8].map(element => {
-                    return (
-                        <div className="carousel_card_comp">
-                            <p className="t1">UPDAt eD PLAYLIST</p>
-                            <p className="t2">New Music Daily</p>
-                            <p className="t3">Apple Music</p>
-                            <Paper elevation={6} />
-                        </div>
-                    )
-                })}
-            </div>
-            <h1>Browse</h1>
-            <hr></hr>
-            <div className="browseComponent">
-                {[1, 2, 3, 4, 5, 6, 7, 8].map(element => {
-                    return (
-                        <div className="carousel_card_comp">
-                            <p className="t1">UPDAt eD PLAYLIST</p>
-                            <p className="t2">New Music Daily</p>
-                            <p className="t3">Apple Music</p>
-                            <Paper elevation={6} />
-                        </div>
-                    )
-                })}
-            </div>
-            <h1>Browse</h1>
-            <hr></hr>
-            <div className="browseComponent">
-                {[1, 2, 3, 4, 5, 6, 7, 8].map(element => {
-                    return (
-                        <div className="carousel_card_comp">
-                            <p className="t1">UPDAt eD PLAYLIST</p>
-                            <p className="t2">New Music Daily</p>
-                            <p className="t3">Apple Music</p>
-                            <Paper elevation={6} />
-                        </div>
-                    )
-                })}
-            </div>
-            <h1>Browse</h1>
-            <hr></hr>
-            <div className="browseComponent">
-                {[1, 2, 3, 4, 5, 6, 7, 8].map(element => {
-                    return (
-                        <div className="carousel_card_comp">
-                            <p className="t1">UPDAt eD PLAYLIST</p>
-                            <p className="t2">New Music Daily</p>
-                            <p className="t3">Apple Music</p>
-                            <Paper elevation={6} />
-                        </div>
-                    )
-                })}
-            </div>
+            </Stack>
         </>
     )
 }
