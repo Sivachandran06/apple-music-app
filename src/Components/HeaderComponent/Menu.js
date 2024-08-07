@@ -20,7 +20,7 @@ export default function Menu() {
     <Box sx={{ width: 250 }} role="presentation" onClick={toggleDrawer(false)}>
       <List>
         <h3>Up Next</h3>
-        {['No Upcoming songs'].map((text, index) => (
+        {['No Upcoming songs.'].map((text, index) => (
           <ListItem key={text} disablePadding>
             <ListItemButton>
               <ListItemText primary={text} />

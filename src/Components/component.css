@@ -1,12 +1,14 @@
 .albumBanner {
-    min-width: 200px;
+    min-width: 500px;
     background: #fff;
-    height: 200px;
+    height: 500px;
 }
 
 .album_image {
     width: fit-content;
     padding: 10px;
+    width: 80%;
+    height: 80%;
 }
 
 .scroll_carousel::-webkit-scrollbar {

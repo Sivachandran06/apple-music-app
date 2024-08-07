@@ -44,9 +44,9 @@ function LeftPanel() {
                                 <Button className="nav_btn" size="small" LinkComponent={Link} to="/" variant="none" startIcon={<HomeOutlinedIcon sx={{ color: red[500] }} />}>
                                     Home
                                 </Button>
-                                <Button className="nav_btn" size="small" LinkComponent={Link} to="/browse1" variant="none" startIcon={<GridViewOutlinedIcon sx={{ color: red[500] }} />}>
+                                {/* <Button className="nav_btn" size="small" LinkComponent={Link} to="/browse1" variant="none" startIcon={<GridViewOutlinedIcon sx={{ color: red[500] }} />}>
                                     Browser
-                                </Button>
+                                </Button> */}
                                 <Button className="nav_btn" size="small" LinkComponent={Link} to="/browse" variant="none" startIcon={<SensorsOutlinedIcon sx={{ color: red[500] }} />}>
                                     browse
                                 </Button>

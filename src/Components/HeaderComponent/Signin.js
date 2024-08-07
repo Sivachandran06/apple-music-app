@@ -1,4 +1,4 @@
-import * as React from 'react';
+import React, { useContext } from 'react';
 import Button from '@mui/material/Button';
 import Stack from '@mui/material/Stack';
 import PersonIcon from '@mui/icons-material/Person';
@@ -6,32 +6,37 @@ import PeopleAltSharpIcon from '@mui/icons-material/PeopleAltSharp';
 import './Login.css';
 import CancelIcon from '@mui/icons-material/Cancel';
 import { _getApiData } from "../../network/util";
-
+import { UserContext } from '../../store/userContext';
 
 
 export default function Signin() {
 
+  const { user, setUser } = useContext(UserContext);
   const [isOpen, setIsOpen] = React.useState(false);
-  const [stateData, setState] = React.useState({
-    "email": "",
-    "password": "",
+  const [loginState, setloginState] = React.useState({
+    email: "",
+    password: "",
+    appType: "music",
   });
 
   let signIn = async () => {
-    console.log(stateData);
     let login = await _getApiData("https://academics.newtonschool.co/api/v1/user/login", {
       method: "POST",
       body: JSON.stringify({
-        email: stateData['email'],
-        password: stateData['password'],
+        email: loginState['email'],
+        password: loginState['password'],
         appType: 'music'
       })
     });
     if (login['status'] === "error") {
-      alert(login['message']);
-      sessionStorage.setItem("loggedin", true);
+      alert(login['status']);
+      sessionStorage.setItem("loggedin", false);
+      setUser({ ...user, loggedin: false })
     } else {
+      alert(login['status']);
       sessionStorage.setItem("loggedin", true);
+      setUser({ ...user, loggedin: true })
+      togglePopup();
     }
   }
 
@@ -39,16 +44,26 @@ export default function Signin() {
     setIsOpen(!isOpen);
   };
 
+  const signout = () => {
+    sessionStorage.clear();
+    setUser({ ...user, loggedin: false })
+  }
+
 
   return (
     <div >
       <Stack direction="row" spacing={2} >
-        <Button variant="outlined"
+        {!user.loggedin ? <Button variant="outlined"
           startIcon={<PersonIcon />}
           style={{ textTransform: "lowercase", color: "White", backgroundColor: "red", borderRadius: "5px", height: "25px", fontSize: "11.5px" }}
           onClick={togglePopup}>
           Sign in
-        </Button>
+        </Button> : <Button variant="outlined"
+          startIcon={<PersonIcon />}
+          style={{ textTransform: "lowercase", color: "White", backgroundColor: "red", borderRadius: "5px", height: "25px", fontSize: "11.5px" }}
+          onClick={signout}>
+          Sign out
+        </Button>}
       </Stack>
       {isOpen && (
         <div className="popup">
@@ -68,13 +83,13 @@ export default function Signin() {
                 type="email"
                 placeholder="Email or Apple Account"
                 required
-                onChange={(e) => setState({ ...stateData, "email": e.target.value })}
+                onChange={(e) => setloginState({ ...loginState, "email": e.target.value })}
               />
               <input
                 type="Password"
                 placeholder="Password"
                 required
-                onChange={(e) => setState({ ...stateData, "password": e.target.value })}
+                onChange={(e) => setloginState({ ...loginState, "password": e.target.value })}
               />
               <PeopleAltSharpIcon style={{ color: "#fa2d48" }} />
               <p className="info-text">

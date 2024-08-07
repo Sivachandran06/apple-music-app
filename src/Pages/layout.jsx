@@ -8,12 +8,19 @@ function Layout(props) {
   return (
     <>
       <div className="layout">
-        <div className="sidebar"><LeftPanel /></div>
-        <div className="header"><Header /></div>
-        <div className="main"><Outlet /></div>
-        <div className="footer"><Footer /></div>
+        <div className="sidebar">
+          <LeftPanel />
+        </div>
+        <div className="header">
+          <Header />
+        </div>
+        <div className="main">
+          <Outlet />
+        </div>
+        <div className="footer">
+          <Footer />
+        </div>
       </div>
-
     </>
   );
 }

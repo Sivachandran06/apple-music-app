@@ -56,8 +56,6 @@ function Browse1() {
                             );
                         })}
                     </section>
-
-
                 </div>
             </div>
         </>

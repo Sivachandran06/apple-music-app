@@ -1,61 +1,104 @@
 import { Typography } from "@mui/material";
-import React, { useEffect, useState } from "react";
-import Stack from '@mui/material/Stack';
+import React, { useEffect, useState, useContext } from "react";
+import Stack from "@mui/material/Stack";
 import "../Components/component.css";
-
+import { _getApiData } from "../network/util";
+import { UserContext } from "../store/userContext";
 
 function Browse(props) {
-    const [musicList, setMusicList] = useState([]);
+  const { user, setUser } = useContext(UserContext);
+  const [musicList, setMusicList] = useState([]);
+  const [songslist, setsongslist] = useState([]);
 
-    async function fetchMusicList() {
-        let data = localStorage.getItem('musiclist')
-        if (data) {
-            data = JSON.parse(data)
-        } else {
-            const url = "https://academics.newtonschool.co/api/v1/music/album";
-            const myHeaders = new Headers();
-            myHeaders.append("projectId", "22uq494gh842");
-            const requestOptions = {
-                method: "GET",
-                headers: myHeaders,
-                redirect: "follow"
-            };
-            const response = await fetch(url, requestOptions);
-            const result = await response.json();
-            data = result.data
-            localStorage.setItem("musiclist", JSON.stringify(result.data))
-        }
-        setMusicList(data); // Save data to state
-        console.log(data, "data");
-    }
+  async function fetchMusicList() {
+    const url = "https://academics.newtonschool.co/api/v1/music/album";
+    const requestOptions = {
+      method: "GET",
+    };
+    let data = await _getApiData(url, requestOptions);
+    localStorage.setItem("musiclist", JSON.stringify(data.data));
+    data = data.data;
+    setsongslist(data[3]["songs"]);
+    console.log("mksongs", data[0]["songs"]);
+    setMusicList(data);
+  }
 
-    useEffect(() => {
-        fetchMusicList();
-    }, []);
-    return (
-        <>
-            <h1>Browse</h1>
-            <hr></hr>
-            <Stack className="scroll_carousel" sx={{
-                overflowY: 'auto',
-                maxHeight: 400,
-                '& > *': {
-                    width: '100%',
-                },
-            }} direction="row" spacing={2}>
-                {musicList.map((element, index) => {
-                    return (
-                        <div className="albumBanner">
-                            <Typography variant="h6">Card</Typography>
-                            <Typography variant="body1">Lorem ipsum dolor sit amet</Typography>
-                            <img className="album_image" alt="album_cover" src={element.image} />
-                        </div>
-                    )
-                })}
-            </Stack>
-        </>
-    )
+  useEffect(() => {
+    fetchMusicList();
+  }, []);
+
+  const setAudio = (url) => {
+    setUser({ ...user, song_url: url, isPlaying: true });
+    user.audioRef.current.play();
+  };
+  return (
+    <>
+      <h1>Browse</h1>
+      <hr></hr>
+      <Stack
+        className="scroll_carousel"
+        sx={{
+          overflowY: "auto",
+          "& > *": {
+            width: "100%",
+          },
+        }}
+        direction="row"
+        spacing={2}
+      >
+        {musicList.map((element, index) => {
+          return (
+            <div key={index} className="albumBanner">
+              <Typography variant="h6">{element.title}</Typography>
+              <Typography variant="body1">
+                Artis Name : {element.name}
+              </Typography>
+              <img
+                className="album_image"
+                alt="album_cover"
+                src={element.image}
+              />
+            </div>
+          );
+        })}
+      </Stack>
+
+      <Stack
+        className="scroll_carousel"
+        sx={{
+          overflowY: "auto",
+          "& > *": {
+            width: "100%",
+          },
+        }}
+        direction="row"
+        spacing={2}
+      >
+        {songslist.map((element, index) => {
+          return (
+            <div
+              key={index}
+              onClick={() => {
+                setAudio(element.audio_url);
+              }}
+              className="albumBanner"
+            >
+              <Typography variant="h6">{element.title}</Typography>
+              <Typography variant="body1">
+                Artis Name : {element.name}
+              </Typography>
+              <img
+                className="album_image"
+                alt="album_cover"
+                src={element.thumbnail}
+              />
+              <audio src={element.audio_url}></audio>
+            </div>
+          );
+        })}
+      </Stack>
+    </>
+  );
 }
-
 
 export default Browse;
