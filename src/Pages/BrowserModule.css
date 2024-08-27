@@ -1,0 +1,23 @@
+.albumBanner {
+    width: 200px; /* Adjust the width as needed */
+    height: 300px; /* Adjust the height as needed */
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    padding: 10px;
+    
+    border-radius: 10px;
+    background-color: #f9f9f9;
+  }
+  
+  .album_image {
+    width: 100%;
+    height: auto; /* Maintain aspect ratio */
+   
+  }
+  .albumBanner {
+    min-width: 250px;
+    background: #333;
+    height: "250px";
+}

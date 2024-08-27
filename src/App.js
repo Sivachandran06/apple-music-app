@@ -20,6 +20,7 @@ function App() {
             <Route index element={<Home />} />
             <Route path="login" element={<Login />}></Route>
             <Route path="browse" element={<Browse />}></Route>
+            <Route path="browse/details" element={<Browse />}></Route>
             <Route path="radio" element={<Radio />}></Route>
             {/* <Route path="AlbumDetail1" element={<AlbumDetail1 />}></Route>
             <Route path="AlbumDetail2" element={<AlbumDetail2 />}></Route> */}

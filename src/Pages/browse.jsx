@@ -4,6 +4,14 @@ import Stack from "@mui/material/Stack";
 import "../Components/component.css";
 import { _getApiData } from "../network/util";
 import { UserContext } from "../store/userContext";
+import "./BrowserModule.css";
+import Artist from "./Moods/Artist";
+import { NewReleases } from "@mui/icons-material";
+import TopCharts from "./Moods/TopCharts";
+import Romantic from "./Moods/Romantic";
+import Excited from "./Moods/Excited";
+import Happy from "./Moods/Happy";
+import Sad from "./Moods/Sad";
 
 function Browse(props) {
   const { user, setUser } = useContext(UserContext);
@@ -35,12 +43,21 @@ function Browse(props) {
     <>
       <h1>Browse</h1>
       <hr></hr>
+      <NewReleases />
+      <TopCharts />
+      <Romantic />
+      <Excited />
+      <Happy />
+      <Sad />
+      <Artist />
+
       <Stack
         className="scroll_carousel"
         sx={{
           overflowY: "auto",
           "& > *": {
-            width: "100%",
+            height: "50%",
+            width: "50%",
           },
         }}
         direction="row"
@@ -48,16 +65,22 @@ function Browse(props) {
       >
         {musicList.map((element, index) => {
           return (
-            <div key={index} className="albumBanner">
-              <Typography variant="h6">{element.title}</Typography>
-              <Typography variant="body1">
-                Artis Name : {element.name}
-              </Typography>
+            <div
+              key={index}
+              onClick={() => {
+                setAudio(element.audio_url);
+              }}
+              className="albumBanner"
+            >
               <img
                 className="album_image"
                 alt="album_cover"
                 src={element.image}
               />
+              <Typography variant="h6" sx={{ overflow: "hidden" }}>
+                {element.title}
+              </Typography>
+              <audio src={element.audio_url}></audio>
             </div>
           );
         })}
@@ -83,15 +106,14 @@ function Browse(props) {
               }}
               className="albumBanner"
             >
-              <Typography variant="h6">{element.title}</Typography>
-              <Typography variant="body1">
-                Artis Name : {element.name}
-              </Typography>
               <img
                 className="album_image"
                 alt="album_cover"
                 src={element.thumbnail}
               />
+              <Typography variant="h6" sx={{ overflow: "hidden" }}>
+                {element.title}
+              </Typography>
               <audio src={element.audio_url}></audio>
             </div>
           );
