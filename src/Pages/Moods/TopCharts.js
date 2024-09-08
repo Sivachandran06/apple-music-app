@@ -1,7 +1,7 @@
-import React, { useContext, useEffect, useState } from "react";
+import React, {  useEffect, useState } from "react";
 import Stack from "@mui/material/Stack";
 import { Typography } from "@mui/material";
-import { UserContext } from "../../store/userContext";
+//import { UserContext } from "../../store/userContext";
 import AlignItemsList from "./Details/Details";
 
 
@@ -9,10 +9,10 @@ import AlignItemsList from "./Details/Details";
 
 
 function TopCharts() {
-    const { user, setUser } = useContext(UserContext);
+    //const { user, setUser } = useContext(UserContext);
     const [musicList,setMusiclist]= useState([]);
     const[ShowDetails, setShowDetails]=useState(false);
-
+    const [ seletedsong, setseletedsong] = useState([]);
 
     useEffect(() => {
 
@@ -23,17 +23,20 @@ function TopCharts() {
             },
         })
             .then((response) => response.json())
-            .then((result) => setMusiclist(result.data, "Siva results"))
+            .then((result) => setMusiclist(result.data))
             .catch((error) => console.error(error));
+            
     }, []);
-
-    const setAudio = (url) => {
-        setUser({ ...user, song_url: url, isPlaying: true });
-        user.audioRef.current.play();
-      };
+    // const setAudio = (url) => {
+    //     setUser({ ...user, song_url: url, isPlaying: true });
+    //     user.audioRef.current.play();
+    //   };
 
     const ToggleDetails =()=>{
         setShowDetails(!ShowDetails);
+    }
+    const handelClick = (song)=>{
+        setseletedsong(song)
     }
 
     return (
@@ -54,8 +57,9 @@ function TopCharts() {
                     return (
                         <div key={index}
                             onClick={() => {
-                                setAudio(element.audio_url);
+                                //setAudio(element.audio_url);
                                 ToggleDetails();
+                                handelClick(element.songs);
                             }} className="albumBanner">
                             <img
                                 className="album_image"
@@ -69,7 +73,7 @@ function TopCharts() {
                 })}
             </Stack>
            
-            {ShowDetails && <AlignItemsList/>}
+            {ShowDetails && <AlignItemsList musicList={seletedsong}/>}
         </>
     )
 }
