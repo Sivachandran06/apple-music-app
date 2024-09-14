@@ -1,26 +1,34 @@
-import React from "react";
+import React, { useState } from "react";
 import AppleIcon from '@mui/icons-material/Apple';
-import './PlayerDisplayModule.css'
+import FavoriteIcon from '@mui/icons-material/Favorite';
+import FavoriteBorderIcon from '@mui/icons-material/FavoriteBorder';
 
-function PlayerDisplay(){
-    
+import './PlayerDisplayModule.css';
 
-    return(
+function PlayerDisplay() {
+    const [isFavorited, setIsFavorited] = useState(false);
 
-        // Apple Logo
+    const handleToggle = () => {
+        setIsFavorited(!isFavorited);
+    };
+
+    return (
         <>
-        <div className="player-display">
-            <div className="left-icon">
-            <img alt="MusicSyb.svg" src='MusicSyb.svg' style={{ height:"20px", width:"20px"}}></img>
+            <div className="player-display">
+                <div className="left-icon">
+                    <img alt="MusicSyb.svg" src='MusicSyb.svg' style={{ height: "20px", width: "20px" }} />
+                </div>
+                <div className="player-container">
+                    <div className="center-content">
+                        <AppleIcon style={{ color: "rgb(104 104 104)", fontSize: "24px" }} />
+                    </div>
+                </div>
+                <div onClick={handleToggle} style={{ cursor: 'pointer' ,color:"rgb(104 104 104)" }}>
+                    {isFavorited ? <FavoriteIcon color="error"sx={{ color: "rgb(104 104 104)" }} /> : <FavoriteBorderIcon sx={{ color: "rgb(104 104 104)" }}/>}
+                </div>
             </div>
-            <div className="player-container">
-            <div className="center-content">
-            <AppleIcon style={{color:"rgb(98 ,98, 98)" , fontSize:"24px" }}/>
-            </div>
-            </div>
-            
-        </div>
         </>
-    )
+    );
 }
+
 export default PlayerDisplay;
