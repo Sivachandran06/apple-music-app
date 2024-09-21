@@ -3,15 +3,15 @@ export async function _getApiData(url, option) {
     let _curldata = new Promise((resolve, reject) => {
         option['headers'] = {
             ...option['header'],
-            'Content-Type': 'application/json',
-            'projectID': 'u0kdju5bps0g',
-            'Authorization': token
+            'content-type': 'application/json',
+            'projectid': 'u0kdju5bps0g',
+            'authorization': `Bearer ${token}`
         }
         fetch(url, option).then(async (res) => {
             let data = await res.json();
-            if (data['status'] == "success"){
+            if (data['status'] == "success") {
                 if (data['token']) {
-                    sessionStorage.setItem("token",data['token']);
+                    sessionStorage.setItem("token", data['token']);
                 }
                 resolve(data);
             } else {
@@ -24,6 +24,6 @@ export async function _getApiData(url, option) {
     return _curldata;
 }
 
-function getToken(){
+function getToken() {
     return sessionStorage.getItem('token');
 }
